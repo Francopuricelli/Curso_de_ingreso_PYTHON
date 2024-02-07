@@ -33,7 +33,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        sueldo = self.txt_sueldo.get()
+        sueldo_a_numero = int(sueldo)
+        sueldo_a_porcentaje = float(sueldo)
+        importe = sueldo_a_numero + sueldo_a_porcentaje * 0.15
+        alert("IMPORTE", f"tu sueldo con el importe incluido es de {importe}")
         
     
 if __name__ == "__main__":
