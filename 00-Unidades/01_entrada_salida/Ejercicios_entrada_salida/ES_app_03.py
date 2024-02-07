@@ -34,7 +34,7 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        nombre_alumno = self.txt_nombre.get()
+        nombre_alumno = self.txt_nombre.get() #SIRVE PARA AGARRAR EL NOMBRE QUE PONGAMOS EN EL TEXT BOX ASI SE LO ASIGNAMOS A LA VARIABLE#
 
         alert("nombre del alumno", nombre_alumno)
         
