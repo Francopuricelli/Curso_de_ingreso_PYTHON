@@ -47,29 +47,35 @@ class App(customtkinter.CTk):
         cantidad =int(self.combobox_cantidad.get())
         valor_lamparas = 800
         if cantidad >= 6:
-            valor_total_ejercicio_1 = valor_lamparas - (valor_lamparas * 0.50)
-            alert("mensaje",f"el valor total con el 50% de descuento es: {valor_total_ejercicio_1}")
+            valor_total_ejercicio_1 = valor_lamparas * cantidad
+            valor_lamparas_A = valor_total_ejercicio_1 - (valor_total_ejercicio_1 * 0.50)
+            alert("mensaje",f"el valor total con el 50% de descuento es: {valor_lamparas_A}")
         elif cantidad == 5 and marca == "ArgentinaLuz":
-            valor_total_ejercicio_2 = valor_lamparas - (valor_lamparas * 0.40)
-            alert("mensaje",f"su valor total con el 40% de descuento por comprar la marca ArgentinaLuz es: {valor_total_ejercicio_2}")
+            valor_total_ejercicio_2 = valor_lamparas * 5
+            valor_lamparas_B = valor_total_ejercicio_2 - (valor_total_ejercicio_2 * 0.40)
+            alert("mensaje",f"su valor total con el 40% de descuento por comprar la marca ArgentinaLuz es: {valor_lamparas_B}")
         if not marca == "ArgentinaLuz" and cantidad == 5:
-                valor_no_ArgentinaLuz = valor_lamparas - (valor_lamparas * 0.30)
+                valor_total_ejercicio_c = valor_lamparas * 5
+                valor_no_ArgentinaLuz = valor_total_ejercicio_c - (valor_total_ejercicio_c * 0.30)
                 alert("mensaje",f"su valor total con el 30% de descuento es: {valor_no_ArgentinaLuz}")
         elif cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
-            valor_con_descuento_felipelamparas = valor_lamparas - (valor_lamparas * 0.25)
+            valor_con_descuento_felipelamparas = valor_lamparas * 4 - (valor_lamparas * 0.25)
             alert("mensaje",f"su valor total con el 25 % de descuento es de {valor_con_descuento_felipelamparas}")
         elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 4:
-            valor_total_ejercicio_3 = valor_lamparas - (valor_lamparas * 0.20)
+            valor_total_ejercicio_3 = valor_lamparas * 4 - (valor_lamparas * 0.20)
             alert("mensaje",f"el valor total con el 20% es {valor_total_ejercicio_3}")
         if marca == "ArgentinaLuz" and cantidad == 3:
-            valor_descuento_3 = valor_lamparas - (valor_lamparas * 0.15)
+            valor_descuento_3 = valor_lamparas * 3 - (valor_lamparas * 0.15)
             alert("mensaje",f"su valor total con el 15% de descuento es {valor_descuento_3}")
         elif marca == "FelipeLamparas" and cantidad == 3:
-            valor_descuento_felipe_3 = valor_lamparas - (valor_lamparas * 0.10)
+            valor_descuento_felipe_3 = valor_lamparas * 3 - (valor_lamparas * 0.10)
             alert("mensaje",f"el valor total con el 10% de descuento es {valor_descuento_felipe_3}")
         elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 3:
             valor_descuento_otras = valor_lamparas - (valor_lamparas * 0.05)
             alert("mensaje",f"el valor total con el 5% de descuento es de {valor_descuento_otras}")
+        if valor_lamparas > 4000:
+            descuento_adicional = valor_lamparas - (valor_lamparas * 0.05)
+            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional}")
         
         
         
