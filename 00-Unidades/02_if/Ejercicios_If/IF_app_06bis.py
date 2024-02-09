@@ -39,8 +39,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-
+        altura =float(self.txt_altura.get())
+        if altura < 160:
+            alert("mensaje","BASE")
+        elif altura >= 160 and altura <= 179:
+            alert("mensaje","ESCOLTA")
+        elif altura >= 180 and altura <= 199:
+            alert("mensaje","ALERO")
+        else:
+            alert("mensaje","PIVOT")
         
         
     
