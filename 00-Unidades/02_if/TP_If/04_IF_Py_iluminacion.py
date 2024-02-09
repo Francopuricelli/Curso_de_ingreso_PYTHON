@@ -43,7 +43,37 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = str(self.combobox_marca.get())
+        cantidad =int(self.combobox_cantidad.get())
+        valor_lamparas = 800
+        if cantidad >= 6:
+            valor_total_ejercicio_1 = valor_lamparas - (valor_lamparas * 0.50)
+            alert("mensaje",f"el valor total con el 50% de descuento es: {valor_total_ejercicio_1}")
+        elif cantidad == 5 and marca == "ArgentinaLuz":
+            valor_total_ejercicio_2 = valor_lamparas - (valor_lamparas * 0.40)
+            alert("mensaje",f"su valor total con el 40% de descuento por comprar la marca ArgentinaLuz es: {valor_total_ejercicio_2}")
+        if not marca == "ArgentinaLuz" and cantidad == 5:
+                valor_no_ArgentinaLuz = valor_lamparas - (valor_lamparas * 0.30)
+                alert("mensaje",f"su valor total con el 30% de descuento es: {valor_no_ArgentinaLuz}")
+        elif cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
+            valor_con_descuento_felipelamparas = valor_lamparas - (valor_lamparas * 0.25)
+            alert("mensaje",f"su valor total con el 25 % de descuento es de {valor_con_descuento_felipelamparas}")
+        elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 4:
+            valor_total_ejercicio_3 = valor_lamparas - (valor_lamparas * 0.20)
+            alert("mensaje",f"el valor total con el 20% es {valor_total_ejercicio_3}")
+        if marca == "ArgentinaLuz" and cantidad == 3:
+            valor_descuento_3 = valor_lamparas - (valor_lamparas * 0.15)
+            alert("mensaje",f"su valor total con el 15% de descuento es {valor_descuento_3}")
+        elif marca == "FelipeLamparas" and cantidad == 3:
+            valor_descuento_felipe_3 = valor_lamparas - (valor_lamparas * 0.10)
+            alert("mensaje",f"el valor total con el 10% de descuento es {valor_descuento_felipe_3}")
+        elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 3:
+            valor_descuento_otras = valor_lamparas - (valor_lamparas * 0.05)
+            alert("mensaje",f"el valor total con el 5% de descuento es de {valor_descuento_otras}")
+        
+        
+        
+        
         
     
 if __name__ == "__main__":

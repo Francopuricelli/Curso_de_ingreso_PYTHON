@@ -27,13 +27,19 @@ class App(customtkinter.CTk):
 
         self.title("UTN Fra")
 
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Calcular", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass  
-            
+        nota_aleatoria = random.randint(1,10)
+        if nota_aleatoria >= 1 and nota_aleatoria <= 3:
+            alert("mensaje",f"Desaprobado, la nota es {nota_aleatoria}")
+        elif nota_aleatoria == 4 or nota_aleatoria == 5:
+            alert("mensaje",f"Aprobado, la nota es {nota_aleatoria}")
+        else:
+            alert("mensaje",f"Promocion directa, la nota es {nota_aleatoria}")
+
 
 if __name__ == "__main__":
     app = App()
