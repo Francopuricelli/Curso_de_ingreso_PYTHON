@@ -47,8 +47,6 @@ class App(customtkinter.CTk):
         resultado = numero_1_a_numero % numero_2_a_numero
         alert("resultado", f"el resto de dividir {numero_1} y {numero_2} es: {resultado}")
         
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

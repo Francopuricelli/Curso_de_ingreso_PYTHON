@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Franco
+apellido: Puricelli
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -39,7 +39,7 @@ class App(customtkinter.CTk):
         importe = sueldo_a_numero + sueldo_a_porcentaje * 0.15
         alert("IMPORTE", f"tu sueldo con el importe incluido es de {importe}")
         
-    
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

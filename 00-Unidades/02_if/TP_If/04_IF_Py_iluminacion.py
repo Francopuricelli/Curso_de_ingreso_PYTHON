@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Franco
+apellido: Puricelli
 ---
 TP: IF_Iluminacion
 ---
@@ -46,44 +46,33 @@ class App(customtkinter.CTk):
         marca = str(self.combobox_marca.get())
         cantidad =int(self.combobox_cantidad.get())
         valor_lamparas = 800
-        importe_final = valor_lamparas * cantidad
+        importe_sin_descuento = valor_lamparas * cantidad
         if cantidad >= 6:
-            valor_total_ejercicio_1 = valor_lamparas * cantidad
-            valor_lamparas_A = valor_total_ejercicio_1 - (valor_total_ejercicio_1 * 0.50)
-            alert("mensaje",f"el valor total con el 50% de descuento es: {valor_lamparas_A}")
-        elif cantidad == 5 and marca == "ArgentinaLuz":
-            valor_total_ejercicio_2 = valor_lamparas * 5
-            valor_lamparas_B = valor_total_ejercicio_2 - (valor_total_ejercicio_2 * 0.40)
-            alert("mensaje",f"su valor total con el 40% de descuento por comprar la marca ArgentinaLuz es: {valor_lamparas_B}")
-        if not marca == "ArgentinaLuz" and cantidad == 5:
-                valor_total_ejercicio_b = valor_lamparas * 5
-                valor_no_ArgentinaLuz = valor_total_ejercicio_b - (valor_total_ejercicio_b * 0.30)
-                alert("mensaje",f"su valor total con el 30% de descuento es: {valor_no_ArgentinaLuz}")
-        elif cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
-            valor_total_ejercicio_c = valor_lamparas * 4 
-            valor_con_descuento_felipelamparas = valor_total_ejercicio_c - (valor_total_ejercicio_c * 0.25)
-            alert("mensaje",f"su valor total con el 25 % de descuento es de {valor_con_descuento_felipelamparas}")
-        elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 4:
-            valor_total_ejercicio_3 = valor_lamparas * 4 
-            valor_sin_felipelamparas = valor_total_ejercicio_3 - (valor_total_ejercicio_3 * 0.20)
-            alert("mensaje",f"el valor total con el 20% es {valor_sin_felipelamparas}")
-        if marca == "ArgentinaLuz" and cantidad == 3:
-            valor_total_ejercicio_4 = valor_lamparas * 3
-            valor_descuento_3 = valor_total_ejercicio_4 - (valor_total_ejercicio_4 * 0.15)
-            alert("mensaje",f"su valor total con el 15% de descuento es {valor_descuento_3}")
-        elif marca == "FelipeLamparas" and cantidad == 3:
-            valor_total_ejercicio_4b = valor_lamparas * 3
-            valor_descuento_felipe_3 = valor_total_ejercicio_4b - (valor_total_ejercicio_4b * 0.10)
-            alert("mensaje",f"el valor total con el 10% de descuento es {valor_descuento_felipe_3}")
-        elif not (marca == "FelipeLamparas" and marca == "Argentina luz") and cantidad == 3:
-            valor_total_ejercicio_4c = valor_lamparas * 3
-            valor_descuento_otras = valor_total_ejercicio_4c - (valor_total_ejercicio_4c * 0.05)
-            alert("mensaje",f"el valor total con el 5% de descuento es de {valor_descuento_otras}")
-        
-            
+            valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.50)
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.40)
+            else:
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.30)
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.25)
+            else:
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.20)
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.15)
+            elif marca == "FelipeLamparas": 
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.10)
+            else:
+                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.05)
+        else:
+            valor_lamparas_A = importe_sin_descuento
+        alert("mensaje",f"el importe total es: {valor_lamparas_A}")
         if valor_lamparas_A > 4000:
             descuento_adicional = valor_lamparas_A - (valor_lamparas_A * 0.05)
             alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional}")
+            '''
         elif valor_lamparas_B > 4000:
             descuento_adicional_b = valor_lamparas_B - (valor_lamparas_B * 0.05)
             alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_b}")
@@ -105,7 +94,7 @@ class App(customtkinter.CTk):
         elif valor_descuento_otras > 4000:
             descuento_adicional_h = valor_descuento_otras - (valor_descuento_otras * 0.05)
             alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_h}")
-        
+        '''
         
         
         

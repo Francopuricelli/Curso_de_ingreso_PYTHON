@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Franco
+apellido: Puricelli
 ---
 Ejercicio: entrada_salida_10bis
 ---
@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         descuento = self.txt_descuento.get()
         importe_a_numero = float(importe)
         descuento_a_numero = float(descuento)
-        importe_actualizado = importe_a_numero - importe_a_numero * descuento_a_numero /100
+        importe_actualizado = importe_a_numero - importe_a_numero * descuento_a_numero / 100
         alert("IMPORTE ACTUALIZADO", f"tu importe actualizado es de {importe_actualizado}")
 
 
