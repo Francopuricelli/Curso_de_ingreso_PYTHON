@@ -46,55 +46,40 @@ class App(customtkinter.CTk):
         marca = str(self.combobox_marca.get())
         cantidad =int(self.combobox_cantidad.get())
         valor_lamparas = 800
-        importe_sin_descuento = valor_lamparas * cantidad
+        importe_sin_descuento = valor_lamparas * cantidad 
+        descuento = 0 #hago esta variable para ahorrarme hacer todas las cuentas una y otra vez ya que anajo de todo hago el calculo.
+        #A
         if cantidad >= 6:
-            valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.50)
+            descuento = 0.50
+        #B
         elif cantidad == 5:
             if marca == "ArgentinaLuz":
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.40)
+                descuento = 0.40
             else:
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.30)
+                descuento = 0.30
+        #C
         elif cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.25)
+                descuento = 0.25
             else:
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.20)
+                descuento = 0.20
+        #D
         elif cantidad == 3:
             if marca == "ArgentinaLuz":
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.15)
-            elif marca == "FelipeLamparas": 
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.10)
+                descuento = 0.15
+            elif marca == "FelipeLamparas":
+                descuento = 0.10
             else:
-                valor_lamparas_A = importe_sin_descuento - (importe_sin_descuento * 0.05)
-        else:
-            valor_lamparas_A = importe_sin_descuento
-        alert("mensaje",f"el importe total es: {valor_lamparas_A}")
-        if valor_lamparas_A > 4000:
-            descuento_adicional = valor_lamparas_A - (valor_lamparas_A * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional}")
-            '''
-        elif valor_lamparas_B > 4000:
-            descuento_adicional_b = valor_lamparas_B - (valor_lamparas_B * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_b}")
-        elif valor_no_ArgentinaLuz > 4000:
-            descuento_adicional_c = valor_no_ArgentinaLuz - (valor_no_ArgentinaLuz * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_c}")
-        elif valor_con_descuento_felipelamparas > 4000:
-            descuento_adicional_d = valor_con_descuento_felipelamparas - (valor_con_descuento_felipelamparas * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_d}")
-        elif valor_sin_felipelamparas > 4000:
-            descuento_adicional_e = valor_sin_felipelamparas - (valor_sin_felipelamparas * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_e}")
-        elif valor_descuento_3 > 4000:
-            descuento_adicional_f = valor_descuento_3 - (valor_descuento_3 * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_f}")
-        elif valor_descuento_felipe_3 > 4000:
-            descuento_adicional_g = valor_descuento_felipe_3 - (valor_descuento_felipe_3 * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_g}")
-        elif valor_descuento_otras > 4000:
-            descuento_adicional_h = valor_descuento_otras - (valor_descuento_otras * 0.05)
-            alert("mensaje",f"debido a que su compra supero un valor de 4000 se le adicionara un descuento de 5% por lo que el valor total a pagar es de: {descuento_adicional_h}")
-        '''
+                descuento = 0.05
+        
+        precio_final = importe_sin_descuento - (importe_sin_descuento * descuento) #aca esta el calculo de del precio final 
+        descuento_adicional = 0
+        #E
+        if precio_final > 4000:
+            descuento_adicional = 0.05
+
+        total = precio_final - (precio_final * descuento_adicional)
+        alert ("mensaje",f"el precio final es: {total}")
         
         
         
