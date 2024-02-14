@@ -47,7 +47,7 @@ class App(customtkinter.CTk):
         cantidad =int(self.combobox_cantidad.get())
         valor_lamparas = 800
         importe_sin_descuento = valor_lamparas * cantidad 
-        descuento = 0 #hago esta variable para ahorrarme hacer todas las cuentas una y otra vez ya que anajo de todo hago el calculo.
+        descuento = 0 #hago esta variable para ahorrarme hacer todas las cuentas una y otra vez ya que abajo de todo hago el calculo.
         #A
         if cantidad >= 6:
             descuento = 0.50
@@ -72,12 +72,11 @@ class App(customtkinter.CTk):
             else:
                 descuento = 0.05
         
-        precio_final = importe_sin_descuento - (importe_sin_descuento * descuento) #aca esta el calculo de del precio final 
+        precio_final = importe_sin_descuento - (importe_sin_descuento * descuento) #aca esta el calculo de del precio final. 
         descuento_adicional = 0
         #E
         if precio_final > 4000:
             descuento_adicional = 0.05
-
         total = precio_final - (precio_final * descuento_adicional)
         alert ("mensaje",f"el precio final es: {total}")
         
