@@ -29,7 +29,12 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        pass
+        clave = prompt("Inicio de sesion","Ingrese una contraseña : ")
+        clave = str(clave)
+        
+        while clave != "utn750":
+            clave = prompt("ERROR", "ingrese la clave nuevamente")
+            
     
     
 if __name__ == "__main__":
