@@ -55,7 +55,89 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        contador = 0
+        edad = 0
+        legajo_a = 0
+        while True:
+            apellido = prompt("mensaje","Ingrese su apellido: ")
+            if apellido == None:
+                break
+            edad = int(edad)
+
+            while True:
+                edad = prompt ("mensaje"," Porfavor ingrese su edad: ")
+                edad = int(edad)
+                if edad >= 18 and edad <= 90:
+                    break
+                alert("error","la edad debe ser entre 18 años y 90 años")
+                edad = prompt("mensaje","ingrese la edad nuevamente")
+
+            while True:
+                legajo = prompt("mensaje","Ingrese su numero de legajo")
+                legajo= int(legajo)
+                if legajo >= 1000 and legajo <= 9000:
+                    break
+                else:
+                    alert("error","Su numero de legajo debe tener 4 cifras y no debe tener dos ceros a la izquierda")
+                legajo = prompt("mensaje","reingrese su numero de legajo porfavor")
+
+
+
+
+            self.txt_apellido.delete(0, "end")
+            self.txt_apellido.insert(0, apellido)
+
+            self.txt_edad.delete(0, "end")
+            self.txt_edad.insert(0, edad)
+
+            self.txt_legajo.delete(0, "end")
+            self.txt_legajo.insert(0, legajo)
+            break
+                
+                    
+                    
+                
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        '''
+        edad = int(edad)
+        apellido = prompt("iNGRESO DE DATOS", "Ingrese su apellido: ")
+        apellido = str(apellido)
+        while apellido != edad:
+            edad = prompt("ingreso", "ingrese su edad")
+            edad = int(edad)
+            if edad > 90 or edad < 17:
+                edad = prompt("ERROR","REINGRESAR EDAD")
+            while not edad or apellido:
+                estado = prompt(self.combobox_tipo.get(),"ingrese estado")
+                estado = str (estado)
+                if estado != "Soltero" and estado != "Casado" and estado != "Divorciado" and estado != "Viudo":
+                    estado = prompt("ERROR","REINGRESAR ESTADO")
+                '''
+             
+
+
 
 
 if __name__ == "__main__":

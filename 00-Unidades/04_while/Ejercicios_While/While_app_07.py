@@ -40,16 +40,21 @@ class App(customtkinter.CTk):
         numero_a = 0
         numero_suma = 0
         
-        while numero_a != None:
+        while True: # mientras sea true se ejecuta el numero_a
             numero_a = prompt("numero","Ingrese el numero")
-            numero = int(numero_a)
+            if numero_a == None: # none representa a la nada , cancel o nada
+                break # rompe el bucle
+            
+            numero_a = int(numero_a)
             numero_suma += numero_a
             contador += 1
-        
+            promedio = numero_suma / contador
+
+            
             self.txt_suma_acumulada.delete(0, "end")
             self.txt_suma_acumulada.insert(0, numero_suma)
             self.txt_promedio.delete(0, "end")
-            self.txt_promedio.insert(0, numero_suma / contador) 
+            self.txt_promedio.insert(0, promedio) 
 
     
 if __name__ == "__main__":
