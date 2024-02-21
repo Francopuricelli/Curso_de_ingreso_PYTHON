@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
                 if numero_a < 0:
                     numero = numero_a
                     numero *= numero_a
-                
+                #
             contador += 1
             
             self.txt_suma_acumulada.delete(0, "end")

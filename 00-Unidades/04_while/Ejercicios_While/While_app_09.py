@@ -40,20 +40,25 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        bandera_primer = True #concepto de bander
-        maximo = 0
+        bandera_primer = True #concepto de bandera
+        maximo = 0 #MAXIMOS Y MINIMOS NO SE INICIALIZAN. NO SE PUEDE HACER: minimo = 0
         minimo = 0
         while True:
             numero = prompt("mensaje","ingrese un numero")
-            if numero == None:
+            if numero != None:
+                numero = int(numero)
+            else:
                 break
-            numero = int(numero)
 
-            if numero > maximo or bandera_primer == True:
-                maximo == numero
-
-            if  numero < minimo or bandera_primer == True:
+            if bandera_primer == True:
                 minimo == numero
+                maximo == numero
+                bandera_primer == False
+            else:
+                if  numero < minimo:
+                    minimo == numero
+                if numero > maximo:
+                    maximo == numero
 
             bandera_primer = False
             

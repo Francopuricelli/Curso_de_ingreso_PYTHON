@@ -51,12 +51,12 @@ class App(customtkinter.CTk):
         toneladas = self.txt_toneladas.get()
         toneladas_a_numero = float(toneladas)
         toneladas_conversion = toneladas_a_numero * 1000 #siempre realizar la conversion a las mismas unidades.
-        cantidad_camiones =math.ceil(toneladas_conversion / 3500) #math ceil para redondear.
+        cantidad_camiones = math.ceil(toneladas_conversion / 3500) #math ceil para redondear.
         alert("CANTIDAD DE CAMIONES",f"vas a necesitar {cantidad_camiones} camion/es")
     def btn_tiempo_llegada_on_click(self):
         kilometros = self.txt_kilometros.get()
         kilómetros_a_numero = float(kilometros)
-        tiempo_llegada =math.ceil(kilómetros_a_numero / 90) 
+        tiempo_llegada = kilómetros_a_numero / 90
         alert("TIEMPO DE LLEGADA",f"El tiempo de llegada es de {tiempo_llegada} hora/s")
     
     

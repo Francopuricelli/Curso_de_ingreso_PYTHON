@@ -35,7 +35,47 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        minimo = 0
+        maximo = 0
+        flag = True
+        contador = 0
+        edad = 0
+        promedio_edad = 0
+        acum_votos = 0
+        edad_suma = 0
+        cantidad_votos = 0
+        while True:
+            nombre_candidato = prompt("mensaje","ingrese el nombre del candidato:")
+            if nombre_candidato != None:
+                nombre_candidato = str(nombre_candidato)
+            else:
+                break
+            cantidad_votos = prompt("mensaje","ingrese cantidad de votos: ")
+            cantidad_votos = int(cantidad_votos)
+            if cantidad_votos > 0:
+                acum_votos += cantidad_votos
+            if flag == True:
+                minimo = cantidad_votos
+                maximo = cantidad_votos
+                flag = False
+            else:
+                if cantidad_votos < minimo:
+                    minimo = cantidad_votos
+                elif cantidad_votos > maximo:
+                    maximo = cantidad_votos
+
+            if edad != None or edad >= 25:
+                edad = prompt("mensaje","Ingrese edad del candidato")
+                if edad == None:
+                    break
+                edad = int(edad)
+                edad_suma += edad
+            contador += 1
+            promedio_edad = edad_suma / contador
+        mensaje = f"{nombre_candidato} es el candidato con mas votos ({maximo}) .\n {nombre_candidato}, ({edad} años) es el candidato con menos votos ({minimo}) \n el promedio de edades es de: {promedio_edad} \n la cantidad de votos es de: {acum_votos} " 
+
+        alert("mesnaje", mensaje)
+
 
 
 if __name__ == "__main__":

@@ -32,7 +32,7 @@ class App(customtkinter.CTk):
         contador = 0
         acumulador = 0
         while contador < 10:
-            if contador % 2 == 0:
+            if contador % 2 == 0: # si el resto (%) de dividir por 2 es igual a 0.
                 acumulador = acumulador + contador
             print(acumulador)
             contador += 2

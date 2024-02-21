@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Franco
+apellido: Puricelli
 ---
 Ejercicio: Match_05
 ---
@@ -39,7 +39,6 @@ class App(customtkinter.CTk):
         match hora:
             case "7" | "8" | "9" | "10" | "11":
                 alert("mensaje","Es de mañana")
-
     
     
 if __name__ == "__main__":
