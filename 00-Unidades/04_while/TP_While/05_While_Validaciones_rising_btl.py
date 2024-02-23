@@ -58,31 +58,29 @@ class App(customtkinter.CTk):
         contador = 0
         edad = 0
         legajo = 0
-        apellido = prompt("mensaje","Ingrese su apellido: ")
-        while apellido != None:
+        while True:
             apellido = prompt("mensaje","Ingrese su apellido: ")
             if apellido == None:
                 break
             edad = int(edad)
-
             while True:
                 edad = prompt ("mensaje"," Porfavor ingrese su edad: ")
                 if edad == None:
-                    continue # vuelve a ejecutar el bucle
+                    continue# vuelve a ejecutar el bucle
                 edad = int(edad)
                 if edad >= 18 and edad <= 90:
                     break
                 alert("error","la edad debe ser entre 18 años y 90 años")
                 edad = prompt("mensaje","ingrese la edad nuevamente")
-                
+
             while True:
                 legajo = prompt("mensaje","Ingrese su numero de legajo")
-                legajo= int(legajo)
+                legajo = int(legajo)
                 if legajo >= 1000 and legajo <= 9999:
                     break
                 else:
                     alert("error","Su numero de legajo debe tener 4 cifras y no debe tener dos ceros a la izquierda")
-                legajo = prompt("mensaje","reingrese su numero de legajo porfavor")
+                    legajo = prompt("mensaje","reingrese su numero de legajo porfavor")
 
 
 

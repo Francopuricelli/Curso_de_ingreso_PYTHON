@@ -44,11 +44,12 @@ class App(customtkinter.CTk):
         acum_votos = 0
         edad_suma = 0
         cantidad_votos = 0
+        candidato_mas_votos = ""
+        candidato_menos_votos = ""
         while True:
             nombre_candidato = prompt("mensaje","ingrese el nombre del candidato:")
-            if nombre_candidato != None:
-                nombre_candidato = str(nombre_candidato)
-            else:
+            nombre_candidato
+            if nombre_candidato == None:
                 break
             cantidad_votos = prompt("mensaje","ingrese cantidad de votos: ")
             cantidad_votos = int(cantidad_votos)
@@ -57,22 +58,29 @@ class App(customtkinter.CTk):
             if flag == True:
                 minimo = cantidad_votos
                 maximo = cantidad_votos
+                candidato_mas_votos = nombre_candidato
+                candidato_menos_votos = nombre_candidato
                 flag = False
             else:
                 if cantidad_votos < minimo:
                     minimo = cantidad_votos
+                    candidato_menos_votos = nombre_candidato
                 elif cantidad_votos > maximo:
                     maximo = cantidad_votos
+                    candidato_mas_votos = nombre_candidato
+                    
 
             if edad != None or edad >= 25:
                 edad = prompt("mensaje","Ingrese edad del candidato")
-                if edad == None:
-                    break
+                edad = int(edad)
+                if edad == None or edad < 25:
+                    alert("mensaje","su edad debe ser de mas de 25 años")
+                    edad = prompt("mensaje","reingrese edad")
                 edad = int(edad)
                 edad_suma += edad
             contador += 1
             promedio_edad = edad_suma / contador
-        mensaje = f"{nombre_candidato} es el candidato con mas votos ({maximo}) .\n {nombre_candidato}, ({edad} años) es el candidato con menos votos ({minimo}) \n el promedio de edades es de: {promedio_edad} \n la cantidad de votos es de: {acum_votos} " 
+        mensaje = f"{candidato_mas_votos} es el candidato con mas votos ({maximo}) .\n {candidato_menos_votos}, ({edad} años) es el candidato con menos votos ({minimo}) \n el promedio de edades es de: {promedio_edad} \n la cantidad de votos es de: {acum_votos} " 
 
         alert("mesnaje", mensaje)
 
